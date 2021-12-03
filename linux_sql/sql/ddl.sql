@@ -19,3 +19,5 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_usage (
                                   L2_cache INTEGER NOT NULL,
                                   total_mem INTEGER NOT NULL,
                                   'timestamp' TIMESTAMP NOT NULL);
+
+
