@@ -5,8 +5,7 @@ to collect hardware and resource usage information among nodes on the same netwo
 to use for the Jarvis LCA team. The technologies used include git, docker, postgresql, and bash.
 
 # Quickstart
-Pull postgres docker image with the command and create a volume. 
-```
-docker pull postres
-
-```
+Run the psql_docker script with `./psql_docker <cmd> username password` from the scripts directory. The cmd options 
+can either be create, stop, or start. The script will create a docker container and volume if the jrvs-psql container 
+doesn't already exist.
+Next, run the ddl.sql file from postgres with the command ``
