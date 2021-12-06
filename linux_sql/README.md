@@ -53,6 +53,7 @@ in the host_usage table.
 host_info
     id (SERIAL), hostname (VARCHAR), cpu_number (INTEGER), cpu_architecture (VARCHAR), cpu_model (VARCHAR), 
     cpu_mhz (FLOAT), l2_cache (INTEGER), total_mem (INTEGER), timestamp (TIMESTAMP)
+
 host_usage
     host_id (SERIAL), memory_free (INTEGER), cpu_idle (INTEGER), cpu_kernel (INTEGER), disk_io (INTEGER),
     disk_available (INTEGER), timestamp (timestamp)
