@@ -59,7 +59,9 @@ host_usage
     host_id (SERIAL), memory_free (INTEGER), cpu_idle (INTEGER), cpu_kernel (INTEGER), disk_io (INTEGER),
     disk_available (INTEGER), timestamp (timestamp)
 # Test
-The SQL queries were tested by inserting sample data points for testing. The bash scripts were tested with manual docker
+As this is meant to be a minimum viable product, testing was conducted on a single machine. The assumption is
+that with firewalls and networks setup properly, this product will work in a linux cluster. The SQL queries were 
+tested by inserting sample data points for testing. The bash scripts were tested with manual docker
 commands and manipulating the database records through the psql CLI. 
 
 # Deployment
@@ -70,6 +72,9 @@ the psql_docker script can be run to setup the image. The ddl.sql file can be ca
 the two databases for this project.
 
 # Improvements 
-
-
+To further the knowledge gained through this project, it might be wise to investigate how host hardware
+changes would affect the database. Figuring out how to update our host information through bash scripting to 
+automate table changes would be a good next step. It could be fun to figure out what tools may 
+be used to restrict nodes that are using too resource heavy for a period of time. Furthermore, the usage information
+could have another component that makes application specific details available to the linux cluster admin team.
 
