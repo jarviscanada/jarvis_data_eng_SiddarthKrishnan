@@ -27,7 +27,7 @@ that can be called to view a host's current usage stats. By placing the usage sc
 above, the script will add an entry about your usage to the host_usage table every minute.
 
 # Architecture
-![alt text](https://github.com/jarviscanada/jarvis_data_eng_SiddarthKrishnan/blob/develop/linux_sql/assets/mock.html "Logo Title Text 1")
+![alt text](https://github.com/jarviscanada/jarvis_data_eng_SiddarthKrishnan/blob/develop/linux_sql/assets/mock_draw.jpg "Logo Title Text 1")
 
 ## Scripts
 psql_docker.sh - Can start, stop, or create jrvs-psql container.The script will only create the container if it doesn't 
