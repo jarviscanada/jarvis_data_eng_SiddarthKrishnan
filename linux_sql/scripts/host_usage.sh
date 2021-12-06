@@ -27,7 +27,6 @@ host_id="(SELECT id FROM host_info WHERE hostname='$hostname')"
 insert_stmt="INSERT INTO host_usage(timestamp, cpu_idle, cpu_kernel, memory_free, host_id, disc_io, disc_available)
 VALUES('$timestamp', $cpu_idle, $cpu_kernel, $memory_free, $host_id, $disc_io, $disc_available);"
 
-#set up env var for pql cmd
 export PGPASSWORD=$psql_password
 
 psql -h $psql_host -p $psql_port -d $db_name -U $psql_user -c "$insert_stmt"
