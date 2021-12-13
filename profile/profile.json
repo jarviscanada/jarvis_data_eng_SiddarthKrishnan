@@ -1,0 +1,111 @@
+{
+  "education": [
+    {
+      "awards_achievements": [
+        "GPA: 3.3/4"
+      ],
+      "degree": "Bachelor of Science",
+      "department": "Computer Science",
+      "duration": "2018-2021",
+      "school_name": "Ryerson University"
+    }
+  ],
+  "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_SiddarthKrishnan",
+  "highlighted_projects": [
+    {
+      "description": "Goal was to deploy machine learning model (neural network architecture) to identify objects by a class label. We wanted to understand why deep learning was preferable for computer vision tasks.Used transfer learning approach, adapting a prefined CNN for our dataset. We had a hard time achieving classification lower than standard benchmarks for the R-CNN models. We could have focused more on preprocessing data and adjusting the network through drop layers. We also should have read more literature on networks for image classification as we were unable to correct overfitting and accuracy issues in the given time.",
+      "git_url": "",
+      "name": "Machine learning object recognition assignment"
+    }
+  ],
+  "jarvis_projects": [
+    {
+      "description": "Set up monitoring scripts for a linux cluster to track usage statistics for several nodes. These nodes are connected locally and the script will periodically populate a table with each node's current usage information. This project helped get acquainted with the linux filesystem hierarchy. It was apparent that virutal memory comprises process info, memory, CPU scheduling and other statistics. Logging memory statistics was a good exercise in understanding file paritions, which manage the storage space.",
+      "git_url": "/linux_sql",
+      "name": "Cluster Monitor"
+    },
+    {
+      "description": [
+        "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
+        "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
+        "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+      ],
+      "git_url": "/core_java",
+      "name": "Core Java Apps"
+    },
+    {
+      "description": "",
+      "git_url": "/springboot",
+      "name": "Springboot App"
+    },
+    {
+      "description": "",
+      "git_url": "/python_data_anlytics",
+      "name": "Python Data Analytics"
+    },
+    {
+      "description": "",
+      "git_url": "/hadoop",
+      "name": "Hadoop"
+    },
+    {
+      "description": "",
+      "git_url": "/spark",
+      "name": "Spark"
+    },
+    {
+      "description": "",
+      "git_url": "/cloud_devops",
+      "name": "Cloud/DevOps"
+    }
+  ],
+  "name": "Siddarth Krishnan",
+  "others": [
+    {
+      "bullets": [
+        "Receational sports",
+        "Defi research",
+        "Trading"
+      ],
+      "title": "Activities/Hobbies"
+    }
+  ],
+  "professional_experience": [
+    {
+      "company": "Jarvis",
+      "description": "Gaining experiecne with many development tools and programming paradigms. Implemented a linux cluster monitoring agent to track node usage on a local network.",
+      "duration": "2021-present",
+      "title": "Junior Software Developer"
+    },
+    {
+      "company": "Cineplex",
+      "description": "Guest services role. Worked in concession area serving food and preparing orders. Checked vaccine certificates for all theatre entrants. Closing and opening duties.",
+      "duration": "2021-present",
+      "title": "Cast Member"
+    }
+  ],
+  "skills": {
+    "competent": [
+      "Java",
+      "C++",
+      "Smalltalk",
+      "Docker",
+      "Javascript"
+    ],
+    "familiar": [
+      "PyTorch",
+      "React",
+      "Vue",
+      "MATLAB",
+      "Rust"
+    ],
+    "proficient": [
+      "Python",
+      "Linux/Bash",
+      "RDBMS/SQL",
+      "Agile/Scrum",
+      "Git"
+    ]
+  },
+  "summary": "I'm a recent computer science graduate passionate about machine learning and advances in the financial space like decentralized finance. My excitement stems from seeing how we can identify patterns in big data set with the use of deep learning and different neural network architectures. In addition, I've been paying close attention to the proliferation of decentralized protocols in blockchain technology and how creative developers have gamified finance with Web3. I want to gain experience with time series analysis and working with other data sets to really establish my knowledge of machine learning algorithms."
+}
