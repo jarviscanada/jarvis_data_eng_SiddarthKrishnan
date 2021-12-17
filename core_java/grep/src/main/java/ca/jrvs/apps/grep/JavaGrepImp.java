@@ -30,6 +30,7 @@ public class JavaGrepImp implements JavaGrep{
         List<String> matchedLines = new ArrayList<String>();
         for (File file: listFiles(rootPath)) {
             for (String line: readLines(file)) {
+                if(line == null) {continue;}
                 if (containsPattern(line)) {
                     matchedLines.add(line);
                 }
@@ -77,10 +78,14 @@ public class JavaGrepImp implements JavaGrep{
 
     @Override
     public boolean containsPattern(String line) {
-        //Pattern p = Pattern.compile(regex);
-        Pattern p = Pattern.compile(this.regex);
-        Matcher matcher = p.matcher(line);
-        return matcher.find();
+        try {
+            Pattern p = Pattern.compile(this.regex);
+            Matcher matcher = p.matcher(line);
+            return matcher.find();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
@@ -91,7 +96,7 @@ public class JavaGrepImp implements JavaGrep{
             BufferedWriter bw = new BufferedWriter(out);
 
             for (String temp: lines) {
-                bw.write(temp);
+                bw.write(temp + "\n");
             }
             bw.close();
             out.close();
@@ -134,7 +139,7 @@ public class JavaGrepImp implements JavaGrep{
 
     public static void main(String[] args) throws IOException {
         JavaGrepImp jg = new JavaGrepImp();
-        jg.setRootPath("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt/shakespeare.txt");
+        jg.setRootPath("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt");
         jg.setOutFile("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt/outf.txt");
         jg.setRegex(".*World.*");
         jg.process();
