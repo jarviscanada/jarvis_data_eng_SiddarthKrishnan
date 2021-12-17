@@ -4,6 +4,9 @@ import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +14,7 @@ import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.regex.*;
+import java.util.stream.Collectors;
 
 public class JavaGrepImp implements JavaGrep{
 
@@ -23,16 +27,25 @@ public class JavaGrepImp implements JavaGrep{
 
     @Override
     public void process() throws IOException {
-        
+        List<String> matchedLines = new ArrayList<String>();
+        for (File file: listFiles(rootPath)) {
+            for (String line: readLines(file)) {
+                if (containsPattern(regex)) {
+                    matchedLines.add(line);
+                }
+            }
+        }
+        writeToFile(matchedLines);
     }
 
     @Override
     public List<File> listFiles(String rootDir) {
-        File rp = new File(rootDir);
-        List<File> fileList = Arrays.asList(rp.listFiles());
-        for(File file: fileList) {
-            if(file.isFile()) {fileList.add(file);}
-            else {listFiles(file.getName());}
+        List<File> fileList=null;
+        try {
+            fileList = Files.list(Paths.get(rootDir)).map(Path::toFile).collect(Collectors.toList());
+        }
+        catch (IOException e) {
+            e.printStackTrace();
         }
         return fileList;
     }
@@ -114,11 +127,10 @@ public class JavaGrepImp implements JavaGrep{
 
     public static void main(String[] args) throws IOException {
         JavaGrepImp jg = new JavaGrepImp();
-        jg.setRegex(".xx.");
-        //List<String> list = new ArrayList<String>();
-        //jg.setOutFile("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt/testwrite.txt");
-        //jg.writeToFile(list);
-
+        jg.setRootPath("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt/");
+        jg.setOutFile("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt/outf.txt");
+        jg.setRegex(".*Romeo.*Juliet.*");
+        jg.process();
 
     }
 }
