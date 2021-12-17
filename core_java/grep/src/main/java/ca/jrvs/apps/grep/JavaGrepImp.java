@@ -30,7 +30,7 @@ public class JavaGrepImp implements JavaGrep{
         List<String> matchedLines = new ArrayList<String>();
         for (File file: listFiles(rootPath)) {
             for (String line: readLines(file)) {
-                if (containsPattern(regex)) {
+                if (containsPattern(line)) {
                     matchedLines.add(line);
                 }
             }
@@ -40,14 +40,19 @@ public class JavaGrepImp implements JavaGrep{
 
     @Override
     public List<File> listFiles(String rootDir) {
-        List<File> fileList=null;
-        try {
-            fileList = Files.list(Paths.get(rootDir)).map(Path::toFile).collect(Collectors.toList());
+        List<File> files = new ArrayList<File>();
+        File root = new File(rootDir);
+        File[] fileList = root.listFiles();
+        if (fileList != null) {
+            for (File file: fileList) {
+                if (file.isDirectory()) {
+                    listFiles(file.getAbsolutePath());
+                } else {
+                    files.add(file.getAbsoluteFile());
+                }
+            }
         }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        return fileList;
+        return files;
     }
 
     @Override
@@ -57,7 +62,9 @@ public class JavaGrepImp implements JavaGrep{
         try {
             reader = new BufferedReader(new FileReader(inputFile));
             String line = reader.readLine();
+            fileLines.add(line);
             while(line != null) {
+                line = reader.readLine();
                 fileLines.add(line);
             }
         } catch (FileNotFoundException e) {
@@ -127,10 +134,9 @@ public class JavaGrepImp implements JavaGrep{
 
     public static void main(String[] args) throws IOException {
         JavaGrepImp jg = new JavaGrepImp();
-        jg.setRootPath("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt/");
+        jg.setRootPath("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt/shakespeare.txt");
         jg.setOutFile("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt/outf.txt");
-        jg.setRegex(".*Romeo.*Juliet.*");
+        jg.setRegex(".*World.*");
         jg.process();
-
     }
 }
