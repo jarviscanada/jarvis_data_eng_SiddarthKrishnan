@@ -9,12 +9,25 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import ca.jrvs.apps.practice.RegexExcImp;
+import org.apache.log4j.BasicConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class JavaGrepLambdaImp extends JavaGrepImp {
+    private final Logger logger = LoggerFactory.getLogger(RegexExcImp.class);
     public static void main(String[] args) {
+        BasicConfigurator.configure();
+        if (args.length != 3) {
+            return;
+        }
+
         JavaGrepLambdaImp javaGrepLambdaImp = new JavaGrepLambdaImp();
         javaGrepLambdaImp.setRegex(args[2]);
         javaGrepLambdaImp.setOutFile(args[0]);
         javaGrepLambdaImp.setRootPath(args[1]);
+
+        javaGrepLambdaImp.listFiles(javaGrepLambdaImp.getRootPath());
 
         System.out.println(javaGrepLambdaImp.getRootPath());
         try {
@@ -30,8 +43,8 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
         try {
             return Files.walk(path).filter(Files::isRegularFile).map(Path::toFile).collect(Collectors.toList());
         } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+            logger.error(e.getMessage());
+            throw new RuntimeException("failed method reason", e);
         }
     }
 
@@ -42,8 +55,8 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
             Stream<String> lines = Files.lines(filepath).onClose(() -> System.out.println("done read"));
             return lines.collect(Collectors.toList());
         } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+            logger.error(e.getMessage());
+            throw new RuntimeException("failed method reason", e);
         }
     }
 }
