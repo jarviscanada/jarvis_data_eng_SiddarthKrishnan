@@ -27,13 +27,11 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
         javaGrepLambdaImp.setOutFile(args[0]);
         javaGrepLambdaImp.setRootPath(args[1]);
 
-        javaGrepLambdaImp.listFiles(javaGrepLambdaImp.getRootPath());
-
-        System.out.println(javaGrepLambdaImp.getRootPath());
         try {
             javaGrepLambdaImp.process();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            javaGrepLambdaImp.logger.error(ex.getMessage());
+            throw new RuntimeException("failed method reason", ex);
         }
     }
 
@@ -42,7 +40,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
         Path path = Paths.get(rootDir);
         try {
             return Files.walk(path).filter(Files::isRegularFile).map(Path::toFile).collect(Collectors.toList());
-        } catch (IOException e) {
+        } catch (Exception e) {
             logger.error(e.getMessage());
             throw new RuntimeException("failed method reason", e);
         }
