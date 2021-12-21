@@ -1,6 +1,5 @@
 package ca.jrvs.apps.grep;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
@@ -80,9 +79,9 @@ public class JavaGrepImp implements JavaGrep{
             Matcher matcher = p.matcher(line);
             return matcher.find();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.debug(e.getMessage());
+            throw new RuntimeException("failed method reason", e);
         }
-        return false;
     }
 
     @Override
@@ -100,7 +99,8 @@ public class JavaGrepImp implements JavaGrep{
             out_f.close();
         }
         catch (Exception e) {
-            e.getStackTrace();
+            logger.debug(e.getMessage());
+            throw new RuntimeException("failed method reason", e);
         }
     }
 
@@ -135,6 +135,7 @@ public class JavaGrepImp implements JavaGrep{
     }
 
     public static void main(String[] args) throws IOException {
+        BasicConfigurator.configure();
         JavaGrepImp jg = new JavaGrepImp();
         jg.setRootPath("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt");
         jg.setOutFile("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt/outf.txt");
