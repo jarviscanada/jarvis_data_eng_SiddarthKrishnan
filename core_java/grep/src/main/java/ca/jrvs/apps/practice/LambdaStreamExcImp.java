@@ -3,9 +3,11 @@ package ca.jrvs.apps.practice;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import java.lang.Math;
 
 public class LambdaStreamExcImp implements LambdaStreamExc{
 
@@ -21,37 +23,37 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
 
     @Override
     public Stream<String> filter(Stream<String> stringStream, String pattern) {
-        return null;
+        return stringStream.filter(s -> !(s.contains(pattern)));
     }
 
     @Override
     public IntStream createIntStream(int[] arr) {
-        return null;
+        return Arrays.stream(arr);
     }
 
     @Override
     public <E> List<E> toList(Stream<E> stream) {
-        return null;
+        return stream.collect(Collectors.toList());
     }
 
     @Override
     public List<Integer> toList(IntStream intStream) {
-        return null;
+        return intStream.boxed().collect(Collectors.toList());
     }
 
     @Override
     public IntStream createIntStream(int start, int end) {
-        return null;
+        return IntStream.range(start, end);
     }
 
     @Override
     public DoubleStream squareRootIntStream(IntStream intStream) {
-        return null;
+        return intStream.mapToDouble(num -> (double)num).map(x -> Math.sqrt(x));
     }
 
     @Override
     public IntStream getOdd(IntStream intStream) {
-        return null;
+        return intStream.filter(x -> x%2==1);
     }
 
     @Override
