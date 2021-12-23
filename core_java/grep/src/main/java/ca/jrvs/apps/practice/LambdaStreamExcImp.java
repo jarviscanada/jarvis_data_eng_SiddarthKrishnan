@@ -3,6 +3,7 @@ package ca.jrvs.apps.practice;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.IntConsumer;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
@@ -58,26 +59,28 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
 
     @Override
     public Consumer<String> getLambdaPrinter(String prefix, String suffix) {
-        return null;
+        return ((val) -> System.out.println(prefix + val + suffix));
     }
 
     @Override
     public void printMessages(String[] messages, Consumer<String> printer) {
-
+        Arrays.stream(messages).forEach(printer);
     }
 
     @Override
     public void printOdd(IntStream intStream, Consumer<String> printer) {
-
+        intStream.filter(x -> x%2==1).mapToObj(s -> String.valueOf(s)).collect(Collectors.toList()).stream().forEach(printer);
     }
 
     @Override
     public Stream<Integer> flatNestedInt(Stream<List<Integer>> ints) {
+
         return null;
     }
 
     public static void main(String[] args) {
-        LambdaStreamExcImp x = new LambdaStreamExcImp();
-        x.toUpperCase("sd", "ds", "cv").forEach(System.out::println);
+
+        LambdaStreamExc lse = new LambdaStreamExcImp();
+        lse.printOdd(lse.createIntStream(0, 5), lse.getLambdaPrinter("odd number:", "!"));
     }
 }
