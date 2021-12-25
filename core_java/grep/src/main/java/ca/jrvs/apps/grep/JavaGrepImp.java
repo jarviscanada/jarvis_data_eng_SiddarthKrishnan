@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.regex.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class JavaGrepImp implements JavaGrep{
 
@@ -25,7 +26,7 @@ public class JavaGrepImp implements JavaGrep{
     public void process() throws IOException {
         List<String> matchedLines = new ArrayList<String>();
         for (File file: listFiles(rootPath)) {
-            for (String line: readLines(file)) {
+            for (String line: readLines(file).collect(Collectors.toList())) {
                 if(line == null) {continue;}
                 if (containsPattern(line)) {
                     matchedLines.add(line);
@@ -53,23 +54,18 @@ public class JavaGrepImp implements JavaGrep{
     }
 
     @Override
-    public List<String> readLines(File inputFile) throws IllegalArgumentException {
-        BufferedReader reader;
-        List<String> fileLines = new ArrayList<String>();
+    public Stream<String> readLines(File inputFile) throws IllegalArgumentException {
+        BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(inputFile));
-            String line = reader.readLine();
-            fileLines.add(line);
-            while(line != null) {
-                line = reader.readLine();
-                fileLines.add(line);
-            }
+            return reader.lines();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+            throw new RuntimeException("failed method reason", e);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage());
+            throw new RuntimeException("failed method reason", e);
         }
-        return fileLines;
     }
 
     @Override
@@ -137,9 +133,21 @@ public class JavaGrepImp implements JavaGrep{
     public static void main(String[] args) throws IOException {
         BasicConfigurator.configure();
         JavaGrepImp jg = new JavaGrepImp();
-        jg.setRootPath("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt");
-        jg.setOutFile("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt/outf.txt");
-        jg.setRegex(".*World.*");
-        jg.process();
+
+        BasicConfigurator.configure();
+        if (args.length != 3) {
+            throw new IllegalArgumentException("USAGE: outfile, rootpath, regex");
+        }
+
+        jg.setRegex(args[2]);
+        jg.setOutFile(args[0]);
+        jg.setRootPath(args[1]);
+
+        try {
+            jg.process();
+        } catch (Exception ex) {
+            jg.logger.error(ex.getMessage());
+            throw new RuntimeException("failed method reason", ex);
+        }
     }
 }

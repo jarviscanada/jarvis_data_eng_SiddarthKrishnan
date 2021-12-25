@@ -19,7 +19,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     public static void main(String[] args) {
         BasicConfigurator.configure();
         if (args.length != 3) {
-            return;
+            throw new IllegalArgumentException("USAGE: outfile, rootpath, regex");
         }
 
         JavaGrepLambdaImp javaGrepLambdaImp = new JavaGrepLambdaImp();
@@ -47,11 +47,11 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     }
 
     @Override
-    public List<String> readLines(File inputFile) throws IllegalArgumentException {
+    public Stream<String> readLines(File inputFile) throws IllegalArgumentException {
         Path filepath = inputFile.toPath();
         try {
             Stream<String> lines = Files.lines(filepath).onClose(() -> System.out.println("done read"));
-            return lines.collect(Collectors.toList());
+            return lines;
         } catch (IOException e) {
             logger.error(e.getMessage());
             throw new RuntimeException("failed method reason", e);
