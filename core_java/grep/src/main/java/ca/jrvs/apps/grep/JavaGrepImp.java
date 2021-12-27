@@ -44,7 +44,7 @@ public class JavaGrepImp implements JavaGrep{
         if (fileList != null) {
             for (File file: fileList) {
                 if (file.isDirectory()) {
-                    listFiles(file.getAbsolutePath());
+                    files.addAll(listFiles(file.getAbsolutePath()));
                 } else {
                     files.add(file.getAbsoluteFile());
                 }
@@ -142,7 +142,6 @@ public class JavaGrepImp implements JavaGrep{
         jg.setRegex(args[2]);
         jg.setOutFile(args[0]);
         jg.setRootPath(args[1]);
-        //System.out.println(jg.listFiles("/home/centos/dev/jarvis_data_eng_siddarth/core_java/grep/data/txt"));
 
         try {
             jg.process();
