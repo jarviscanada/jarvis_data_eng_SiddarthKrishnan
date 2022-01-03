@@ -16,12 +16,12 @@ files in the container available to the host or vice versa.
 The process of writing matched lines from files in a directory to a given output file was divided into several methods. A method named "process"
 provided a high-level workflow to call all the individual helper methods for performing the grep search operation.
 ##Process
-`matchedLines = []
+```matchedLines = []
 for file in listFilesRecursively:
 for line in readFileLines:
 if (line contains pattern):
 matchedLines.add(line)
-`
+```
 The grep functionality  was implemented using iteration to check every line of searched files for the regex pattern. Recursion and lambda/stream
 APIs were tested in a parent's and the child class's overridden method respectively. Both versions of these methods listed files in a given
 directory recursively. Streams were also tested in a child class's overridden readLines method.
