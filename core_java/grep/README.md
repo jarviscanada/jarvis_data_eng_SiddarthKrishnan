@@ -41,7 +41,7 @@ The app was deployed using the maven build lifecycle and docker. Either the java
 To ensure the dependencies in our pom file are loaded into the JVM, we use uber jar. The maven shade plugin was added to our pom file to package all dependencies
 into an uber jar. A docker image was built using a dockerfile and pushed to docker hub.
 
-#Improvement
+# Improvement
 Learning how to process large volumes of data is the main implementation improvement I felt could be made. The possibility of running out
 of heap memory needs consideration when data is simply stored in a collection. Many of the static factory methods in the Stream interface are
 good enough to build a stream for our needs.
