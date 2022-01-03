@@ -18,9 +18,9 @@ provided a high-level workflow to call all the individual helper methods for per
 ##Process
 ```matchedLines = []
 for file in listFilesRecursively:
-for line in readFileLines:
-if (line contains pattern):
-matchedLines.add(line)
+    for line in readFileLines:
+        if (line contains pattern):
+            matchedLines.add(line)
 ```
 The grep functionality  was implemented using iteration to check every line of searched files for the regex pattern. Recursion and lambda/stream
 APIs were tested in a parent's and the child class's overridden method respectively. Both versions of these methods listed files in a given
