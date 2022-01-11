@@ -1,12 +1,12 @@
 # Siddarth Krishnan . Jarvis Consulting
 
-I'm a recent computer science graduate passionate about machine learning and advances in the financial space like decentralized finance. My excitement stems from seeing how we can identify patterns in big data set with the use of deep learning and different neural network architectures. In addition, I've been paying close attention to the proliferation of decentralized protocols in blockchain technology and how creative developers have gamified finance with Web3. I want to gain experience with time series analysis and working with other data sets to really establish my knowledge of machine learning algorithms.
+I'm a recent computer science graduate passionate about machine learning and advances in the crypto space like decentralized finance. My excitement stems from seeing how we can identify patterns in big data set with the use of deep learning and different neural network architectures. In addition, I've been paying close attention to the proliferation of decentralized protocols in blockchain technology and how creative developers have gamified finance with Web3. There are many challenges I find interesting here like incentivizing liquidity providers. I would enjoy gaining experience with time series analysis and working with large data sets.
 
 ## Skills
 
-**Proficient:** Python, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
+**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Microsoft Office
 
-**Competent:** Java, C++, Smalltalk, Docker, Javascript
+**Competent:** Python, C++, Smalltalk, Docker, Javascript
 
 **Familiar:** PyTorch, React, Vue, MATLAB, Rust
 
@@ -17,11 +17,11 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_SiddarthKr
 
 **Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_SiddarthKrishnan/tree/master/linux_sql)]: Set up monitoring scripts for a linux cluster to track usage statistics for several nodes. These nodes are connected locally and the script will periodically populate a table with each node's current usage information. This project helped get acquainted with the linux filesystem hierarchy. It was apparent that virutal memory comprises process info, memory, CPU scheduling and other statistics. Logging memory statistics was a good exercise in understanding file paritions, which manage the storage space.
 
-**Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_SiddarthKrishnan/tree/master/core_java)]:
+**Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_SiddarthKrishnan/tree/masterhttps://github.com/jarviscanada/jarvis_data_eng_SiddarthKrishnan/tree/master/core_java)]:
       
-  - Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
+  - Twitter App: In the process of making CRUD app for Twitter to learn APIs.
+  - JDBC App: Used JDBC to access database from the RDBMS to abstract CRUD operations. Used the data access object (DAO) pattern in code to execute SQL statements. The DAO pattern along with java.sql api were used in implementation to perfrom operations on an existing database. Our DAO classes hides how objects are persisted in the database. I also explored another the repository pattern and its advantages in this small project.
+  - Grep App: Implemented the bash grep function in a java application. This app made use of java regex classes and file handling to test its usage for text files.
 
 **Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_SiddarthKrishnan/tree/master/springboot)]: Not Started
 
