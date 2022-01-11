@@ -1,6 +1,6 @@
 # Siddarth Krishnan . Jarvis Consulting
 
-I'm a recent computer science graduate passionate about machine learning and advances in the crypto space like decentralized finance. My excitement stems from seeing how we can identify patterns in big data set with the use of deep learning and different neural network architectures. In addition, I've been paying close attention to the proliferation of decentralized protocols in blockchain technology and how creative developers have gamified finance with Web3. There are many challenges I find interesting here like incentivizing liquidity providers. I would enjoy working with in a data engineering or science role and learning where I can use my math aptitude and pattern recognition skills.
+I'm a recent computer science graduate passionate about machine learning and advances in the crypto space like decentralized finance. My excitement stems from seeing how we can identify patterns in big data set with the use of deep learning and different neural network architectures. In addition, I've been paying close attention to the proliferation of decentralized protocols in blockchain technology and how creative developers have gamified finance with Web3. There are many challenges I find interesting here like incentivizing liquidity providers. I would enjoy working in a data engineering or science role and learning where I can apply my math aptitude and pattern recognition skills.
 
 ## Skills
 
@@ -35,7 +35,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_SiddarthKr
 
 
 ## Highlighted Projects
-**Machine learning object recognition assignment**: Goal was to deploy machine learning model (neural network architecture) to identify objects by a class label. We wanted to understand why deep learning was preferable for computer vision tasks.Used transfer learning approach, adapting a prefined CNN for our dataset. We had a hard time achieving classification lower than standard benchmarks for the R-CNN models. We could have focused more on preprocessing data and adjusting the network through drop layers. We also should have read more literature on networks for image classification as we were unable to correct overfitting and accuracy issues in the given time.
+**Machine learning object recognition assignment**: Goal was creating machine learning model (neural network architecture) to identify objects by a class label. We wanted to understand why deep learning was preferable for computer vision tasks.Used transfer learning approach, adapting a prefined CNN for our dataset. We had a hard time achieving classification lower than standard benchmarks for the R-CNN models. We could have focused more on preprocessing data and adjusting the network through drop layers. We also should have read more literature on networks for image classification as we were unable to correct overfitting and accuracy issues in the given time.
 
 
 ## Professional Experiences
