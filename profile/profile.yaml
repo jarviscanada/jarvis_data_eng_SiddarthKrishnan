@@ -5,7 +5,7 @@ github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_SiddarthKr
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: I'm a recent computer science graduate passionate about machine learning and advances in the crypto space like decentralized finance. My excitement stems from seeing how we can identify patterns in big data set with the use of deep learning and different neural network architectures. In addition, I've been paying close attention to the proliferation of decentralized protocols in blockchain technology and how creative developers have gamified finance with Web3. There are many challenges I find interesting here like incentivizing liquidity providers. I would enjoy working in a data engineering or science role and learning where I can apply my math aptitude and pattern recognition skills.    
+summary: I'm a recent computer science graduate passionate about machine learning and advances in the crypto space like decentralized finance. My excitement stems from seeing how we can identify patterns in big data sets using deep learning and different neural network architectures. In addition, I've been paying close attention to the proliferation of decentralized protocols in blockchain technology and how creative developers have gamified finance with Web3. There are many challenges I find interesting here like incentivizing liquidity providers and boostrapping tokens with emissions. I would enjoy working in a data engineering or science role and learning where I can apply my math aptitude and pattern recognition skills.    
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
 skills:
@@ -37,13 +37,13 @@ jarvis_projects:
     git_url: "/linux_sql"
     # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: Set up monitoring scripts for a linux cluster to track usage statistics for several nodes. These nodes are connected locally and the script will periodically populate a table with each node's current usage information. This project helped get acquainted with the linux filesystem hierarchy. It was apparent that virutal memory comprises process info, memory, CPU scheduling and other statistics. Logging memory statistics was a good exercise in understanding file paritions, which manage the storage space. 
+    description: Set up monitoring scripts for a linux cluster to track usage statistics for several nodes. These nodes are connected locally and the script our periodically populates a table with each node's current usage information. This project helped get acquainted with the linux filesystem hierarchy. It was apparent that virutal memory comprises process info, memory, CPU scheduling and other statistics. Logging memory statistics was a good exercise in understanding file paritions, which manage the storage space on the OS. 
   - name: "Core Java Apps"
     git_url: "https://github.com/jarviscanada/jarvis_data_eng_SiddarthKrishnan/tree/master/core_java"
     description:
-      - "Twitter App: In the process of making CRUD app for Twitter to learn APIs."
-      - "JDBC App: Used JDBC to access database from the RDBMS to abstract CRUD operations. Used the data access object (DAO) pattern in code to execute SQL statements. The DAO pattern along with java.sql api were used in implementation to perfrom operations on an existing database. Our DAO classes hides how objects are persisted in the database. I also explored another the repository pattern and its advantages in this small project."
-      - "Grep App: Implemented the bash grep function in a java application. This app made use of java regex classes and file handling to test its usage for text files."
+      - "Twitter App: Currently working on CRUD app for Twitter to learn APIs. Using HTTP and json within java."
+      - "JDBC App: The client side JDBC package java.sql was used to access RDBMS to abstract CRUD operations. The data access object (DAO) pattern was followed in our code to execute SQL statements. The DAO pattern along with java.sql api were used in implementation to perfrom operations on an existing database of customers and orders. Our DAO classes hide how objects are persisted in the database. I also explored the repository pattern and its advantages in this assignment."
+      - "Grep App: Implemented the bash grep function in a java application. This app made use of java regex classes and file handling to test its usage for text files. The testing was done by appending lines with matching regex patterns to a single file. Furthermore, the class files and dependencies were packaged in an uber jar using maven and its shade plugin. This ensured that the JVM would find classpath class files and dependencies in our pom file. The project was finally dockerized."
   - name: "Springboot App"
     git_url: "/springboot"
     description: ""
