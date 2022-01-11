@@ -13,6 +13,15 @@ import java.util.regex.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Implements interface {@link JavaGrep}
+ * <p>
+ * copyright & copy; 2021 Jarvis.
+ * </p>
+ *
+ * @author Siddarth Krishnan.
+ */
+
 public class JavaGrepImp implements JavaGrep{
 
     final Logger logger = LoggerFactory.getLogger(JavaGrepImp.class);

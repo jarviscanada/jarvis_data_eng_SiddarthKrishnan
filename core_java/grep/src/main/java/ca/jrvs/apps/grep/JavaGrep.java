@@ -5,6 +5,22 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Stream;
 
+/**
+ * Interface that handles:
+ * <ul>
+ * <li>ListFiles: list files available in given directory</li>
+ * <li>ReadLines: read all lines of file</li>
+ * <li>ContainsPattern: Search for regex pattern in string</li>
+ * <li>WriteToFile: Write the string on a particular file</li>
+ * </ul>
+ *
+ * <p>
+ * copyright & copy; 2021 Jarvis.
+ * </p>
+ *
+ * @author Siddarth Krishnan.
+ */
+
 public interface JavaGrep {
     /**
      * Top level search workflow
