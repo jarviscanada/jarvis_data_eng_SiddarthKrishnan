@@ -30,7 +30,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_SiddarthKr
 
 ## Professional Experiences
 
-**Junior Software Developer, Jarvis (2021-present)**: Gaining experience with many development tools and programming paradigms. Currently working in a scrum team and developing applications with linux/sql and Java. As a scrum team lead, I work with in the same role and team members while also leading meetings and keeping track of individuals' progress and impediments to success. This role involves meeting deadlines for application development and demonstrating technical acumen in code reviews upon finishing a project. I am also involved in sprint retrospectives that give our team the opportunity to evaluate our performance and discuss technical or communication imrpovements to make for following sprints.
+**Junior Software Developer, Jarvis (2021-present)**: Gaining experience with many development tools and programming paradigms. Currently working in a scrum team and developing applications with linux/sql and Java. As a scrum team lead, I work with in the same role and team members while also leading meetings and keeping track of individuals' progress and impediments to success. This role involves meeting deadlines for application development and demonstrating technical acumen in code reviews upon finishing a project. I am also involved in sprint retrospectives that give our team the opportunity to evaluate our performance and discuss technical or communication improvements to make for following sprints.
 
 **Cast Member, Cineplex (2021-present)**: Guest services role. Worked in concession area serving food and preparing orders. Checked vaccine certificates for all theatre entrants. Closing and opening duties.
 
