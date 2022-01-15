@@ -5,7 +5,7 @@ github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_SiddarthKr
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: I'm a Computer Science graduate passionate about software development and understanding the frameworks and dependencies for big projects. I dabbled in JavaScript, shell programming, and data analysis with Python during my undergrad. Though my personal projects in school were sparse, I am gaining confidence and software acumen working at Jarvis. Java, Linux, and SQL are tools I'm using to further my knowledge at Jarvis, where I'm learning concepts like virtual memory, interfacing with HTTP for API requests, and JDBC abstraction to name just a few. I hope to continue writing code to build applications and explore database concepts. I enjoy working on software, exploring math behind algorithms, and practicing object-oriented styles of programming. I'm keen to learn about how data moves in and out of applications efficiently, and analytics for different types of data (e.g. time-series).      
+summary: I'm a Computer Science graduate passionate about software development and understanding frameworks and dependencies for big projects. I dabbled in JavaScript, shell programming, and data analysis with Python during my undergrad. Though my personal projects in school were sparse, I am gaining confidence and software acumen working at Jarvis. Java, Linux, and SQL are tools I'm using to further my knowledge at Jarvis, where I'm learning concepts like virtual memory, interfacing with HTTP for API requests, and JDBC abstraction to name just a few. I hope to continue writing code to build applications and explore database concepts. I enjoy working on software, exploring math behind algorithms, and practicing object-oriented styles of programming. I'm keen to learn about how data moves in and out of applications efficiently, and analytics for different types of data (e.g. time-series).      
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
 skills:
@@ -67,7 +67,7 @@ professional_experience:
   - title: "Cast Member"
     company: "Cineplex"
     duration: "2021.9-2022.1"
-    description: "I worked in all areas of the theatre, whether that involves serving food and preparing orders or doing theatre checks. Vaccine certificate checks for all theatre entrantswas also one of my primary duties. I always tried to promote a welcoming environment for moviegoers during the pandemic. Every shift of mine required closing duties to ensure an easy opening for the next day. Laid off after New Year's day due to COVID restrictions."
+    description: "I worked in all areas of the theatre, whether that involves serving food and preparing orders or doing theatre checks. Vaccine certificate checks for all theatre entrantswas one of my primary duties. I always tried to promote a welcoming environment for moviegoers during the pandemic. Every shift of mine required closing duties to ensure an easy opening for the next day. Laid off after New Year's day due to COVID restrictions."
   - title: "Customer Experience Associate"
     company: "Walmart"
     duration: "2018.5-2020.9"
@@ -91,4 +91,4 @@ others:
     bullets:
       - "Receational sports - I often organize football and basketball outdoors among university peers and other friends."
       - "Reading"
-      - "Math: personal study for my interest in deep learning (statistics and multivariable valculus)"
+      - "Math: personal study for my interest in deep learning (statistics and multivariable calculus)"
