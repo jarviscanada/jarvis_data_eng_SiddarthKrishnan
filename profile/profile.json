@@ -27,8 +27,8 @@
     {
       "description": [
         "Twitter App: Currently working on CRUD app for Twitter to learn APIs. Using HTTP and json within java.",
-        "JDBC App: Implemented one instance of the data persistence layer for a relational database. The client-side JDBC package java.sql was used to access RDBMS to abstract CRUD operations. The data access object (DAO) pattern was followed in java class files to execute SQL statements. The DAO pattern along with java.sql api was used in implementation to perform operations on an existing database of customers and orders. Our DAO class hides how orders are persisted in the database but can return an order using the java.sql ResultSet api. I also studied the repository pattern, its advantages, and similarities to DAO in this assignment. I learned that the data access layer can compose objects of desired complexity through SQL joins or other statements executed in our java code with the JDBC API.",
-        "Grep App: Reimplemented the bash grep command in a java application. This app made use of java regex classes and file handling to test its usage for text files. The testing was done by appending lines with matching regex patterns to a single file. Furthermore, the class files and dependencies were packaged in an uber jar using maven and its shade plugin. This ensured that the JVM would find class files in both our classpath and pom file dependencies. The project was finally dockerized using a dockerfile to build the image. An interesting challenge was using streams and buffered readers to optimize heap memory usage for the application. Serialized data need not be stored like they are in java collections, and streams provide benefits of laziness which can be useful in many scenarios (cancelling data being loaded)."
+        "JDBC App: Implemented  a Java JDBC application that persists data in a PostgreSQL database which is provisioned using Docker. The client-side JDBC was used to access RDBMS to abstract CRUD operations. The data access object (DAO) pattern was followed in java class files to execute SQL statements. Implemented DAO classes using JDBC to perform operations on an existing database of customers and orders. DAO classes abstract how orders are persisted in the database but can return us an order using the JDBC ResultSet API. Used PreparedStatements for precompiled SQL with input parameters.",
+        "Grep App: Reimplemented the bash grep command in a java application. This app made use of java regex classes and file handling to test its usage for text files. The testing was done by appending lines with matching regex patterns to a single file. Furthermore, the class files and dependencies were packaged in an uber jar using maven and its shade plugin. This ensured that the JVM would find class files in both our classpath and pom file dependencies. The project was finally dockerized using a docker file to build the image. I also looked into using streams and buffered readers to optimize heap memory when operating on lists of strings. Serialized data is an improvement over java collections when we're only traversing the eollection once. Streams are also constructed lazily, which can be useful in scenarios where our operation is prematurely stopped (e.g. cancelling data being loaded)."
       ],
       "git_url": "/core_java",
       "name": "Core Java Apps"
@@ -38,9 +38,9 @@
   "others": [
     {
       "bullets": [
-        "Receational sports",
-        "Defi research",
-        "Math"
+        "Receational sports - I often organize football and basketball outdoors among university peers and other friends.",
+        "Reading",
+        "Math: personal study for my interest in deep learning (statistics and multivariable valculus)"
       ],
       "title": "Activities/Hobbies"
     }
@@ -48,15 +48,21 @@
   "professional_experience": [
     {
       "company": "Jarvis",
-      "description": "Gaining experience with many development tools and programming paradigms. Currently working in a scrum team and developing applications with linux/sql and Java. As a scrum team lead, I work with in the same role and team members while also leading meetings and keeping track of individuals' progress and impediments to success. This role involves meeting deadlines for application development and demonstrating technical acumen in code reviews upon finishing a project. I am also involved in sprint retrospectives that give our team the opportunity to evaluate our performance and discuss technical or communication improvements to make for following sprints.",
-      "duration": "2021-present",
+      "description": "Gaining experience with many development tools and programming paradigms. Working in an Agile/Scrum team and developing applications with Linux, SQL, and Java. As a scrum team lead, I work with team members while also leading meetings and keeping track of individuals' progress and impediments to success. This role involves meeting deadlines for application development and demonstrating technical acumen in code reviews upon finishing projects. I am also involved in sprint retrospectives that allow our team opportunities to evaluate our performance and discuss technical or communication improvements to make for following sprints. I also try actively participate in Slack channels pertaining to different projects to seek help or provide tips from my own progamming knowledge.",
+      "duration": "2021.11-present",
       "title": "Junior Software Developer"
     },
     {
       "company": "Cineplex",
-      "description": "Guest services role. Worked in concession area serving food and preparing orders. Checked vaccine certificates for all theatre entrants. Closing and opening duties.",
-      "duration": "2021-present",
+      "description": "I worked in all areas of the theatre, whether that involves serving food and preparing orders or doing theatre checks. Vaccine certificate checks for all theatre entrantswas also one of my primary duties. I always tried to promote a welcoming environment for moviegoers during the pandemic. Every shift of mine required closing duties to ensure an easy opening for the next day. Laid off after New Year's day due to COVID restrictions.",
+      "duration": "2021.9-2022.1",
       "title": "Cast Member"
+    },
+    {
+      "company": "Walmart",
+      "description": "I managed the electronics deparment in a Walamrt Superstore. This involved cashier duties and advising customers about media products and electronics.",
+      "duration": "2018.5-2020.9",
+      "title": "Customer Experience Associate"
     }
   ],
   "skills": {
@@ -82,5 +88,5 @@
       "Microsoft Office"
     ]
   },
-  "summary": "I'm a recent computer science graduate passionate about software development, machine learning, and advances in the crypto space like decentralized finance. My excitement comes from seeing how we can identify patterns in big data sets using deep learning and different neural network architectures. I also pay attention to decentralized protocols and how developers use game theory for financial apps on Web3. I enjoy working on software, exploring math behind algorithms, and practicing object oriented styles of programming. I would also enjoy learning about how data moves in and out of applications efficiently, and analysis tools for different types of data (e.g. time-series)."
+  "summary": "I'm a Computer Science graduate passionate about software development and understanding the frameworks and dependencies for big projects. I dabbled in JavaScript, shell programming, and data analysis with Python during my undergrad. Though my personal projects in school were sparse, I am gaining confidence and software acumen working at Jarvis. Java, Linux, and SQL are tools I'm using to further my knowledge at Jarvis, where I'm learning concepts like virtual memory, interfacing with HTTP for API requests, and JDBC abstraction to name just a few. I hope to continue writing code to build applications and explore database concepts. I enjoy working on software, exploring math behind algorithms, and practicing object-oriented styles of programming. I'm keen to learn about how data moves in and out of applications efficiently, and analytics for different types of data (e.g. time-series)."
 }
