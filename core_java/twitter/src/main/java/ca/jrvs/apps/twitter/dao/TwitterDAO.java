@@ -53,6 +53,7 @@ public class TwitterDAO implements CrdDao<Tweet, String> {
         URI uri;
         try {
             uri = getPostUri(tweet);
+
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException("Invalid input tweet", e);
         }
@@ -124,6 +125,16 @@ public class TwitterDAO implements CrdDao<Tweet, String> {
 
     @Override
     public Tweet deleteById(String s) {
-        return null;
+        HttpResponse response;
+        HttpClient httpClient = HttpClientBuilder.create().build();
+        OAuthConsumer consumer;
+        consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
+        consumer.setTokenWithSecret(accessToken, tokenSecret);
+        URI uri;
+        try {
+            uri = new URI(API_BASE_URI + DELETE_PATH + QUERY_SYM + "id" + EQUAL + s);
+        } catch (URISyntaxException e) {
+            throw new IllegalArgumentException("Invalid input", e);
+        }
     }
 }
