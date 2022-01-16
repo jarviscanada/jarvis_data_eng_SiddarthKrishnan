@@ -23,7 +23,7 @@ public class TwitterHttpHelper implements HttpHelper {
     private OAuthConsumer consumer;
     private HttpClient httpClient;
 
-    public static void main(String[] args) throws Exception {
+/*    public static void main(String[] args) throws Exception {
         String consumerKey = System.getenv("consumerKey");
         String consumerSecret = System.getenv("consumerSecret");
         String accessToken = System.getenv("accessToken");
@@ -32,7 +32,7 @@ public class TwitterHttpHelper implements HttpHelper {
         HttpHelper httpHelper = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken, tokenSecret);
         HttpResponse httpResponse = httpHelper.httpPost(new URI("https://api.twitter.com/1.1/statuses/update.json?status=api_call2"));
         System.out.println(EntityUtils.toString(httpResponse.getEntity()));
-    }
+    }*/
 
     /**
      * Constructor

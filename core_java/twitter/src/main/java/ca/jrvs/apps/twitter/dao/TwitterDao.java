@@ -1,6 +1,7 @@
 package ca.jrvs.apps.twitter.dao;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
+import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.example.JsonParser;
 import ca.jrvs.apps.twitter.model.Tweet;
 import com.google.gdata.util.common.base.PercentEscaper;
@@ -26,7 +27,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 
-public class TwitterDAO implements CrdDao<Tweet, String> {
+public class TwitterDao implements CrdDao<Tweet, String> {
     //URL constants
     private static final String API_BASE_URI = "https://api.twitter.com";
     private static final String POST_PATH = "/1.1/statuses/update.json";
@@ -39,13 +40,13 @@ public class TwitterDAO implements CrdDao<Tweet, String> {
     private static final int HTTP_OK = 200;
 
     private HttpHelper httpHelper;
-    private String consumerKey = System.getenv("consumerKey");
-    private String consumerSecret = System.getenv("consumerSecret");
-    private String accessToken = System.getenv("accessToken");
-    private String tokenSecret = System.getenv("tokenSecret");
+    private static String consumerKey = System.getenv("consumerKey");
+    private static String consumerSecret = System.getenv("consumerSecret");
+    private static String accessToken = System.getenv("accessToken");
+    private static String tokenSecret = System.getenv("tokenSecret");
 
     @Autowired
-    public TwitterDAO(HttpHelper httpHelper) {
+    public TwitterDao(HttpHelper httpHelper) {
         this.httpHelper = httpHelper;
     }
     @Override
@@ -109,32 +110,63 @@ public class TwitterDAO implements CrdDao<Tweet, String> {
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException("Invalid input", e);
         }
-        HttpGet request = new HttpGet(uri);
+        /* HttpGet request = new HttpGet(uri);
         try {
             consumer.sign(request);
         } catch (OAuthException e) {
             throw new RuntimeException("Failed to execute", e);
-        }
-        try{
-            response = httpClient.execute(request);
+        }*/
+        response = httpHelper.httpGet(uri);
+        return parseResponseBody(response, HTTP_OK);
+        /*try{
+            response = httpHelper.httpGet(uri);
+            //response = httpClient.execute(request);
             return parseResponseBody(response, HTTP_OK);
         } catch (IOException e) {
             throw new RuntimeException("Failed to execute", e);
-        }
+        }*/
     }
 
     @Override
     public Tweet deleteById(String s) {
         HttpResponse response;
-        HttpClient httpClient = HttpClientBuilder.create().build();
+        /*HttpClient httpClient = HttpClientBuilder.create().build();
         OAuthConsumer consumer;
         consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
-        consumer.setTokenWithSecret(accessToken, tokenSecret);
+        consumer.setTokenWithSecret(accessToken, tokenSecret);*/
         URI uri;
         try {
-            uri = new URI(API_BASE_URI + DELETE_PATH + QUERY_SYM + "id" + EQUAL + s);
+            uri = new URI(API_BASE_URI + DELETE_PATH + "/" + s + ".json");
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException("Invalid input", e);
+        }
+        response = httpHelper.httpPost(uri);
+        return parseResponseBody(response, HTTP_OK);
+    }
+
+    public static class TweetUtil {
+        public static Tweet buildTweet(String text, Double lon, Double lat) {
+            HttpClient httpClient = HttpClientBuilder.create().build();
+            //OAuthConsumer consumer;
+            //consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
+            //consumer.setTokenWithSecret(accessToken, tokenSecret);
+            TwitterHttpHelper th = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken, tokenSecret);
+            PercentEscaper percentEscaper = new PercentEscaper("", false);
+            URI uri;
+            try {
+                uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper.escape(text) + "&" + "lat"
+                + EQUAL + lat + "long" + EQUAL + lat);
+            } catch (URISyntaxException e) {
+                throw new IllegalArgumentException("Invalid input", e);
+            }
+            HttpResponse response = th.httpPost(uri);
+            String body;
+            try {
+                body = EntityUtils.toString(response.getEntity());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }
