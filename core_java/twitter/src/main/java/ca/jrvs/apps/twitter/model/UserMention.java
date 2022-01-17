@@ -1,24 +1,28 @@
 package ca.jrvs.apps.twitter.model;
 
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserMention {
 
 
     private String name;
     private List<Integer> indices;
     private String screenName;
-    private Integer id;
+    private Long id;
     private String idStr;
 
 
-    public UserMention(String name, List<Integer> indices, String screenName, Integer id, String idStr){
+/*    public UserMention(String name, List<Integer> indices, String screenName, Long id, String idStr){
         this.name = name;
         this.indices = indices;
         this.screenName = screenName;
         this.id = id;
         this.idStr = idStr;
-    }
+    }*/
 
 
     public String getName() {
@@ -45,11 +49,11 @@ public class UserMention {
         this.screenName = screenName;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

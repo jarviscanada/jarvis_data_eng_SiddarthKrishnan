@@ -1,10 +1,12 @@
 package ca.jrvs.apps.twitter.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
         "createdAt",
@@ -24,13 +26,13 @@ public class Tweet {
     @JsonProperty("createdAt")
     private String createdAt;
     @JsonProperty("id")
-    private Integer id;
+    private Long id;
     @JsonProperty("idStr")
     private String idStr;
     @JsonProperty("text")
     private String text;
-    @JsonProperty("entity")
-    private Entities entity;
+    @JsonProperty("entities")
+    private Entities entities;
     @JsonProperty("coordinates")
     private Coordinates coordinates = null;
     @JsonProperty("retweetCount")
@@ -42,13 +44,13 @@ public class Tweet {
     @JsonProperty("retweeted")
     private Boolean retweeted = false;
 
-    public Tweet(String createdAt, Integer id, String idStr, String text, Entities entity, Coordinates coordinates, Integer retweetCount,
+    public Tweet(String createdAt, Long id, String idStr, String text, Entities entities, Coordinates coordinates, Integer retweetCount,
     Integer favoriteCount, boolean favorited, boolean retweeted) {
         this.createdAt = createdAt;
         this.id = id;
         this.idStr = idStr;
         this.text = text;
-        this.entity = entity;
+        this.entities = entities;
         this.coordinates = coordinates;
         this.retweetCount = retweetCount;
         this.favoriteCount = favoriteCount;
@@ -60,7 +62,7 @@ public class Tweet {
         //Create empty object
     }
 
-    public String getcreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
@@ -68,11 +70,11 @@ public class Tweet {
         this.createdAt = createdAt;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -92,12 +94,12 @@ public class Tweet {
         this.text = text;
     }
 
-    public Entities getEntity() {
-        return entity;
+    public Entities getEntities() {
+        return entities;
     }
 
-    public void setEntity(Entities entity) {
-        this.entity = entity;
+    public void setEntity(Entities entities) {
+        this.entities = entities;
     }
 
     public Coordinates getCoordinates() {

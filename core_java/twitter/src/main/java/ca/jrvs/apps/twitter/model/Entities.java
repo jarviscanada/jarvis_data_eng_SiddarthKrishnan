@@ -1,35 +1,30 @@
 package ca.jrvs.apps.twitter.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Entities {
-    private List<HashTag> hashTags;
-    private List<UserMention> userMentions;
+    private List<Hashtag> hashtags;
+    private List<UserMention> user_mentions;
 
-    public Entities(List<HashTag> hashtags, List<UserMention> usermetions) {
-        this.hashTags = hashtags;
-        this.userMentions=usermetions;
+    public List<Hashtag> getHashtags() {
+        return hashtags;
     }
 
-    public List<HashTag> getHasTags() {
-        return hashTags;
-    }
-
-    public void setHashTags(List<HashTag> hashtags) {
-        this.hashTags = hashtags;
+    public void setHashTags(List<Hashtag> hashtags) {
+        this.hashtags = hashtags;
     }
 
 
     public List<UserMention> getUserMentions() {
-        return userMentions;
+        return user_mentions;
     }
 
     public void setUserMentions(List<UserMention> userMentions) {
-        this.userMentions = userMentions;
+        this.user_mentions = userMentions;
     }
 }
 

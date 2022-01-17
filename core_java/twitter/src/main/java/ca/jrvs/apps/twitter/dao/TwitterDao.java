@@ -36,14 +36,15 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     //URI symbols
     private static final String QUERY_SYM = "?";
     private static final String EQUAL = "=";
+    private static final String AMPERSAND = "&";
     //response code
     private static final int HTTP_OK = 200;
 
     private HttpHelper httpHelper;
-    private static String consumerKey = System.getenv("consumerKey");
-    private static String consumerSecret = System.getenv("consumerSecret");
-    private static String accessToken = System.getenv("accessToken");
-    private static String tokenSecret = System.getenv("tokenSecret");
+    private String consumerKey = System.getenv("consumerKey");
+    private String consumerSecret = System.getenv("consumerSecret");
+    private String accessToken = System.getenv("accessToken");
+    private String tokenSecret = System.getenv("tokenSecret");
 
     @Autowired
     public TwitterDao(HttpHelper httpHelper) {
@@ -94,6 +95,12 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
     private URI getPostUri(Tweet tweet) throws URISyntaxException {
         PercentEscaper percentEscaper = new PercentEscaper("", false);
+        if(tweet.getCoordinates() != null) {
+            double lat = tweet.getCoordinates().getCoordinates().get(1);
+            double lon = tweet.getCoordinates().getCoordinates().get(0);
+            return new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper.escape(tweet.getText()) +
+                    AMPERSAND + "long" + EQUAL + lon + AMPERSAND + "lat" + EQUAL + lat);
+        }
         return new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper.escape(tweet.getText()));
     }
 
@@ -144,29 +151,4 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         return parseResponseBody(response, HTTP_OK);
     }
 
-    public static class TweetUtil {
-        public static Tweet buildTweet(String text, Double lon, Double lat) {
-            HttpClient httpClient = HttpClientBuilder.create().build();
-            //OAuthConsumer consumer;
-            //consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
-            //consumer.setTokenWithSecret(accessToken, tokenSecret);
-            TwitterHttpHelper th = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken, tokenSecret);
-            PercentEscaper percentEscaper = new PercentEscaper("", false);
-            URI uri;
-            try {
-                uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper.escape(text) + "&" + "lat"
-                + EQUAL + lat + "long" + EQUAL + lat);
-            } catch (URISyntaxException e) {
-                throw new IllegalArgumentException("Invalid input", e);
-            }
-            HttpResponse response = th.httpPost(uri);
-            String body;
-            try {
-                body = EntityUtils.toString(response.getEntity());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-    }
 }

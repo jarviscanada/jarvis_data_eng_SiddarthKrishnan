@@ -2,7 +2,11 @@ package ca.jrvs.apps.twitter.dao;
 
 import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
+import ca.jrvs.apps.twitter.example.JsonParser;
 import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.util.TweetUtil;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import net.minidev.json.JSONUtil;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,12 +31,20 @@ public class TwitterDaoIntTest {
     }
 
     @Test
-    public void create() {
+    public void create() throws Exception {
         String hashTag = "#abc";
-        String text = "@sidfromsyd sometext " + hashTag + " " + System.currentTimeMillis();
+        String text = "@sidfromsyd junit test running " + hashTag + " " + System.currentTimeMillis();
         Double lat= 1d;
         Double lon = -1d;
-        Tweet postTweet = TwitterDao.TweetUtil.buildTweet(text, lon, lat);
+        Tweet postTweet = TweetUtil.buildTweet(text, lon, lat);
+        Tweet tweet = dao.create(postTweet);
+        assertEquals(text, tweet.getText());
+
+        assertNotNull(tweet.getCoordinates());
+        assertEquals(2, tweet.getCoordinates().getCoordinates().size());
+        assertEquals(lon, tweet.getCoordinates().getCoordinates().get(0));
+
+        assertTrue(hashTag.contains(tweet.getEntities().getHashtags().get(0).getText()));
     }
 
     @Test
