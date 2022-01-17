@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class Tweet {
 
-    @JsonProperty("createdAt")
+    @JsonProperty("created_at")
     private String createdAt;
     @JsonProperty("id")
     private Long id;

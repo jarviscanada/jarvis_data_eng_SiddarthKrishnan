@@ -49,10 +49,25 @@ public class TwitterDaoIntTest {
 
     @Test
     public void findById() {
-        
+        String hashTag = "#abc";
+        String text = "@sidfromsyd junit test running " + hashTag + " " + System.currentTimeMillis();
+        Tweet postTweet = TweetUtil.buildTweet(text);
+        Tweet tweet = dao.create(postTweet);
+        String id = tweet.getIdStr();
+        Tweet findTweet = dao.findById(id);
+        assertEquals(tweet.getIdStr(), findTweet.getIdStr());
+
     }
 
     @Test
     public void deleteById() {
+        String hashTag = "#abc";
+        String text = "@sidfromsyd junit test running " + hashTag + " " + System.currentTimeMillis();
+        Tweet postTweet = TweetUtil.buildTweet(text);
+        Tweet tweet = dao.create(postTweet);
+        String id = tweet.getIdStr();
+        Tweet deletedTweet = dao.deleteById(id);
+        assertEquals(tweet.getIdStr(), deletedTweet.getIdStr());
+
     }
 }

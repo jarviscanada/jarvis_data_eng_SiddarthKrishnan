@@ -17,4 +17,9 @@ public class TweetUtil {
         tweet.setCoordinates(coordinates);
         return tweet;
     }
+    public static Tweet buildTweet(String text) {
+            Tweet tweet = new Tweet();
+            tweet.setText(text);
+            return tweet;
+    }
 }
