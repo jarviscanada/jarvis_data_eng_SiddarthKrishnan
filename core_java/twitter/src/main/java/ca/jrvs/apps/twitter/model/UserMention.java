@@ -3,17 +3,22 @@ package ca.jrvs.apps.twitter.model;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserMention {
 
-
+    @JsonProperty("name")
     private String name;
+    @JsonProperty("indices")
     private List<Integer> indices;
-    private String screenName;
+    @JsonProperty("screen_name")
+    private String screen_name;
+    @JsonProperty("id")
     private Long id;
-    private String idStr;
+    @JsonProperty("id_str")
+    private String id_str;
 
 
 /*    public UserMention(String name, List<Integer> indices, String screenName, Long id, String idStr){
@@ -42,11 +47,11 @@ public class UserMention {
     }
 
     public String getScreenName() {
-        return screenName;
+        return screen_name;
     }
 
     public void setScreenName(String screenName) {
-        this.screenName = screenName;
+        this.screen_name = screenName;
     }
 
     public Long getId() {
@@ -58,11 +63,11 @@ public class UserMention {
     }
 
     public String getIdStr() {
-        return idStr;
+        return id_str;
     }
 
     public void setIdStr(String idStr) {
-        this.idStr = idStr;
+        this.id_str = idStr;
     }
 
 }

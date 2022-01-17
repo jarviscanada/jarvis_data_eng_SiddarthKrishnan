@@ -27,7 +27,7 @@ public class Tweet {
     private String createdAt;
     @JsonProperty("id")
     private Long id;
-    @JsonProperty("idStr")
+    @JsonProperty("id_str")
     private String idStr;
     @JsonProperty("text")
     private String text;
