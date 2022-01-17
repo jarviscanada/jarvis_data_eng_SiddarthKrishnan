@@ -117,30 +117,13 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException("Invalid input", e);
         }
-        /* HttpGet request = new HttpGet(uri);
-        try {
-            consumer.sign(request);
-        } catch (OAuthException e) {
-            throw new RuntimeException("Failed to execute", e);
-        }*/
         response = httpHelper.httpGet(uri);
         return parseResponseBody(response, HTTP_OK);
-        /*try{
-            response = httpHelper.httpGet(uri);
-            //response = httpClient.execute(request);
-            return parseResponseBody(response, HTTP_OK);
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to execute", e);
-        }*/
     }
 
     @Override
     public Tweet deleteById(String s) {
         HttpResponse response;
-        /*HttpClient httpClient = HttpClientBuilder.create().build();
-        OAuthConsumer consumer;
-        consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
-        consumer.setTokenWithSecret(accessToken, tokenSecret);*/
         URI uri;
         try {
             uri = new URI(API_BASE_URI + DELETE_PATH + "/" + s + ".json");
