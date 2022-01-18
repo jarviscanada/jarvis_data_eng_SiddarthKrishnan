@@ -1,24 +1,33 @@
 package ca.jrvs.apps.twitter.model;
 
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserMention {
 
-
+    @JsonProperty("name")
     private String name;
+    @JsonProperty("indices")
     private List<Integer> indices;
-    private String screenName;
-    private Integer id;
-    private String idStr;
+    @JsonProperty("screen_name")
+    private String screen_name;
+    @JsonProperty("id")
+    private Long id;
+    @JsonProperty("id_str")
+    private String id_str;
 
 
-    public UserMention(String name, List<Integer> indices, String screenName, Integer id, String idStr){
+/*    public UserMention(String name, List<Integer> indices, String screenName, Long id, String idStr){
         this.name = name;
         this.indices = indices;
         this.screenName = screenName;
         this.id = id;
         this.idStr = idStr;
-    }
+    }*/
 
 
     public String getName() {
@@ -38,27 +47,27 @@ public class UserMention {
     }
 
     public String getScreenName() {
-        return screenName;
+        return screen_name;
     }
 
     public void setScreenName(String screenName) {
-        this.screenName = screenName;
+        this.screen_name = screenName;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     public String getIdStr() {
-        return idStr;
+        return id_str;
     }
 
     public void setIdStr(String idStr) {
-        this.idStr = idStr;
+        this.id_str = idStr;
     }
 
 }

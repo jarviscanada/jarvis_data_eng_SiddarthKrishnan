@@ -1,15 +1,20 @@
 package ca.jrvs.apps.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.List;
 
-public class HashTag {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Hashtag {
     private List<Integer> indices;
     private String text;
 
-    public HashTag(List<Integer> indices, String text) {
+/*    public Hashtag(List<Integer> indices, String text) {
         this.indices = indices;
         this.text = text;
-    }
+    }*/
 
     public List<Integer> getIndices() {
         return indices;
