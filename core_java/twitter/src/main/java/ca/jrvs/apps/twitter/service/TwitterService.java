@@ -26,6 +26,7 @@ public class TwitterService implements Service {
     public TwitterService(CrdDao dao) {
         this.dao = dao;
     }
+
     @Override
     public Tweet postTweet(Tweet tweet) {
         validatePostTweet(tweet);
