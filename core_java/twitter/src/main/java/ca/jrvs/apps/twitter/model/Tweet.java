@@ -35,9 +35,9 @@ public class Tweet {
     private Entities entities;
     @JsonProperty("coordinates")
     private Coordinates coordinates = null;
-    @JsonProperty("retweetCount")
+    @JsonProperty("retweet_count")
     private int retweetCount = 0;
-    @JsonProperty("favoriteCount")
+    @JsonProperty("favorite_count")
     private int favoriteCount = 0;
     @JsonProperty("favorited")
     private Boolean favorited = false;

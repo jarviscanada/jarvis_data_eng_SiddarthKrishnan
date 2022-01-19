@@ -20,7 +20,7 @@ public interface Service {
      * Search a tweet by ID
      *
      * @param id tweet id
-     * @param fields set fields not in the list to null
+     * @param fields set fields not in the list to null (only retrieve contents of these)
      * @return Tweet object which is returned by the Twitter API
      *
      * @throws IllegalArgumentException if id or fields param is invalid
