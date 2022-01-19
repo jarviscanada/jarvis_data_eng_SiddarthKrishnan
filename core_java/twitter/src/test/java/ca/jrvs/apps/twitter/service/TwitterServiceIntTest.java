@@ -20,14 +20,10 @@ public class TwitterServiceIntTest {
 
     @Before
     public void setup() {
-        //String consumerKey = System.getenv("consumerKey");
-        //String consumerSecret = System.getenv("consumerSecret");
-        //String accessToken = System.getenv("accessToken");
-        //String tokenSecret = System.getenv("tokenSecret");
-        String consumerKey = "xgi3jfpp4iWmlqQ2fNf6X1aHo";
-        String consumerSecret = "F7r8hOsvz1dueCoXOaNZFjbKpVrV7F5VMvJqRoi2uoaxeC425l";
-        String accessToken = "3196537057-Ugyjh7eClcynJTX1hIs4rBw2rIhYQ1IxBqMGAV9";
-        String tokenSecret = "lgTeu4l2JkChmiMKjC0hpuNypLcmXbRCRw3pBxS4NUbYI";
+        String consumerKey = System.getenv("consumerKey");
+        String consumerSecret = System.getenv("consumerSecret");
+        String accessToken = System.getenv("accessToken");
+        String tokenSecret = System.getenv("tokenSecret");
         System.out.println(consumerKey + "|" + consumerSecret + "|" + accessToken);
         HttpHelper httpHelper = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken, tokenSecret);
         this.twitterService = new TwitterService((new TwitterDao(httpHelper)));
