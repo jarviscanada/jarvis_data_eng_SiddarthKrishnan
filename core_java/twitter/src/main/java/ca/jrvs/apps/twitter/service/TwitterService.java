@@ -91,22 +91,4 @@ public class TwitterService implements Service {
         return Arrays.stream(ids).map(id -> (Tweet) dao.deleteById(id)).collect(Collectors.toList());
     }
 
-    public static void main(String[] args) {
-        String consumerKey = "xgi3jfpp4iWmlqQ2fNf6X1aHo";
-        String consumerSecret = "F7r8hOsvz1dueCoXOaNZFjbKpVrV7F5VMvJqRoi2uoaxeC425l";
-        String accessToken = "3196537057-Ugyjh7eClcynJTX1hIs4rBw2rIhYQ1IxBqMGAV9";
-        String tokenSecret = "lgTeu4l2JkChmiMKjC0hpuNypLcmXbRCRw3pBxS4NUbYI";
-        HttpHelper httpHelper = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken, tokenSecret);
-        TwitterDao td = new TwitterDao(httpHelper);
-        TwitterService ts = new TwitterService(td);
-        String hashTag = "#abc";
-        String text = "@sidfromsyd junit test running " + hashTag + " " + System.currentTimeMillis();
-        Double lat= 1d;
-        Double lon = -1d;
-        Tweet postTweet = TweetUtil.buildTweet(text, lon, lat);
-        Tweet ret = td.create(postTweet);
-        String[] str = {"entities", "id"};
-        String i = ret.getIdStr();
-        ts.showTweet(ret.getIdStr(), str);
-    }
 }
