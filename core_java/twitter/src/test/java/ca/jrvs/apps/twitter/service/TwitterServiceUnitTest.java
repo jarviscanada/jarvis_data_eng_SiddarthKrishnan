@@ -90,6 +90,6 @@ public class TwitterServiceUnitTest {
         Service servicex = Mockito.spy(service);
         List<Tweet> deleted = servicex.deleteTweets(new String[] {"1097607853932564480"});
         assertEquals(ourTweet.getText(), (deleted.get(0).getText()));
-        assertEquals(ourTweet.getIdStr(), (deleted.get(1).getIdStr()));
+        assertEquals(ourTweet.getIdStr(), (deleted.get(0).getIdStr()));
     }
 }
