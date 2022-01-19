@@ -56,7 +56,7 @@ public class TwitterDaoUnitTest {
         //exception expected here
         when(mockHelper.httpPost(isNotNull())).thenThrow(new RuntimeException("mock"));
         try{
-            dao.create(TweetUtil.buildTweet(text, lon, lat));
+            dao.create(TweetUtil.buildTweet(text,  lon, lat));
             fail();
         } catch (RuntimeException e) {
             assertTrue(true);

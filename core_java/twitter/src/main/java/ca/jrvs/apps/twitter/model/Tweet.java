@@ -20,7 +20,6 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "favorited",
         "retweeted"
 })
-
 public class Tweet {
 
     @JsonProperty("created_at")
@@ -36,9 +35,9 @@ public class Tweet {
     @JsonProperty("coordinates")
     private Coordinates coordinates = null;
     @JsonProperty("retweet_count")
-    private int retweetCount = 0;
+    private int retweetCount;
     @JsonProperty("favorite_count")
-    private int favoriteCount = 0;
+    private int favoriteCount;
     @JsonProperty("favorited")
     private Boolean favorited = false;
     @JsonProperty("retweeted")

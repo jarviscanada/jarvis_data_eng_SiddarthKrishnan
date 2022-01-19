@@ -52,7 +52,6 @@ public class TwitterService implements Service {
         }
         Tweet shownTweet = (Tweet) dao.findById(id);
         String tweetString = null;
-        Tweet returnTweet = new Tweet();
         try {
             tweetString = JsonParser.toJson(shownTweet, false, false);
         } catch (JsonProcessingException e) {
@@ -65,7 +64,6 @@ public class TwitterService implements Service {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        JsonNode jsonNode = null;
         for (Iterator<Map.Entry<String, JsonNode>> it = rootNode.fields(); it.hasNext(); ) {
             Map.Entry<String, JsonNode> jsonField = it.next();
             String currentField = jsonField.getKey();
