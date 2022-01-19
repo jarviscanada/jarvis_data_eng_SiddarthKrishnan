@@ -9,7 +9,6 @@ import java.util.Arrays;
 public class TweetUtil {
     public static Tweet buildTweet(String text, Double lon, Double lat) {
         Tweet tweet = new Tweet();
-        //Coordinates coordinates = new Coordinates(Arrays.asList(lon, lat));
         Coordinates coordinates = new Coordinates();
         coordinates.setCoordinates(Arrays.asList(lon, lat));
         tweet.setCoordinates(coordinates);
