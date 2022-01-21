@@ -41,10 +41,14 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     private static final int HTTP_OK = 200;
 
     private HttpHelper httpHelper;
-    private String consumerKey = System.getenv("consumerKey");
+/*    private String consumerKey = System.getenv("consumerKey");
     private String consumerSecret = System.getenv("consumerSecret");
     private String accessToken = System.getenv("accessToken");
-    private String tokenSecret = System.getenv("tokenSecret");
+    private String tokenSecret = System.getenv("tokenSecret");*/
+    String consumerKey = "xgi3jfpp4iWmlqQ2fNf6X1aHo";
+    String consumerSecret = "F7r8hOsvz1dueCoXOaNZFjbKpVrV7F5VMvJqRoi2uoaxeC425l";
+    String accessToken = "3196537057-Ugyjh7eClcynJTX1hIs4rBw2rIhYQ1IxBqMGAV9";
+    String tokenSecret = "lgTeu4l2JkChmiMKjC0hpuNypLcmXbRCRw3pBxS4NUbYI";
 
     @Autowired
     public TwitterDao(HttpHelper httpHelper) {

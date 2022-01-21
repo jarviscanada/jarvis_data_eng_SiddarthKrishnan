@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class TwitterServiceIntTest {
-    private TwitterService twitterService;
+    private Service twitterService;
     String hashTag = "#abc";
     String validtext = "@sidfromsyd junit test running " + hashTag + " " + System.currentTimeMillis();
     Tweet validtweet = TweetUtil.buildTweet(validtext, -1d, 1d);
