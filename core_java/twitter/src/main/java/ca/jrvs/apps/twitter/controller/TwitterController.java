@@ -29,7 +29,7 @@ public class TwitterController implements Controller {
         String [] coordSplit = coords.split(COORD_SEP);
         if (coordSplit.length != 2 || StringUtils.isEmpty(tweet_text)) {
             throw new IllegalArgumentException("Invalid arugment format \n " +
-                    "arguments: \"text\" \"longitutde latitude\"");
+                    "arguments: \"post\" \"text\" \"longitutde:latitude\"");
         }
         Double lat = null;
         Double lon = null;
@@ -45,27 +45,28 @@ public class TwitterController implements Controller {
 
     @Override
     public Tweet showTweet(String[] args) {
-        if (args.length < 2) {
+        if (args.length != 3) {
             throw new IllegalArgumentException("USAGE:");
         }
-        String id = args[0];
-        String [] fields = args[1].split(COMMA);
-        if (StringUtils.isEmpty((id)) || StringUtils.isEmpty(args[1])) {
+        String id = args[1];
+        String [] fields = args[2].split(COMMA);
+        if (StringUtils.isEmpty((id)) || StringUtils.isEmpty(args[2])) {
             throw new IllegalArgumentException("Invalid arugment format \n " +
-                    "arguments: \"tweet_test\" \"field1, field2, etc\"");
+                    "arguments: \"show\" \"tweetid\" \"field1,field2,etc\"");
         }
         return service.showTweet(id, fields);
     }
 
     @Override
     public List<Tweet> deleteTweet(String[] args) {
-        if (args.length == 0) {
-            throw new IllegalArgumentException("USAGE:");
+        if (args.length != 2) {
+            throw new IllegalArgumentException("USAGE: " +
+                    "arguments: \"delete\" \"id1,id2,...\"");
         }
         for (String i: args) {
             if(StringUtils.isEmpty(i)) {
                 throw new IllegalArgumentException("Invalid arugment format \n " +
-                        "arguments: \"id, id\" ");
+                        "arguments: \"delete\" \"id,id\" ");
             }
         }
         return service.deleteTweets(args);
