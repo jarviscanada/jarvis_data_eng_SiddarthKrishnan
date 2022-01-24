@@ -13,26 +13,16 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Component;
 
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-
+@Component
 public class TwitterHttpHelper implements HttpHelper {
     private OAuthConsumer consumer;
     private HttpClient httpClient;
-
-/*    public static void main(String[] args) throws Exception {
-        String consumerKey = System.getenv("consumerKey");
-        String consumerSecret = System.getenv("consumerSecret");
-        String accessToken = System.getenv("accessToken");
-        String tokenSecret = System.getenv("tokenSecret");
-        System.out.println(consumerKey + "|" + consumerSecret + "|" + accessToken + "|" + tokenSecret);
-        HttpHelper httpHelper = new TwitterHttpHelper(consumerKey, consumerSecret, accessToken, tokenSecret);
-        HttpResponse httpResponse = httpHelper.httpPost(new URI("https://api.twitter.com/1.1/statuses/update.json?status=api_call2"));
-        System.out.println(EntityUtils.toString(httpResponse.getEntity()));
-    }*/
 
     /**
      * Constructor

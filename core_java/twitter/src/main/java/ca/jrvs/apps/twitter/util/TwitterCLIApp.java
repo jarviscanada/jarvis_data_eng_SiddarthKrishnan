@@ -12,9 +12,9 @@ import ca.jrvs.apps.twitter.service.Service;
 import ca.jrvs.apps.twitter.service.TwitterService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.util.Locale;
-
+@Component
 public class TwitterCLIApp {
     private Controller controller;
     public static final String USAGE = "USAGE: TwitterCLIApp post|show|delete [options]";
@@ -33,11 +33,11 @@ public class TwitterCLIApp {
         CrdDao dao = new TwitterDao(httpHelper);
         Service service = new TwitterService(dao);
         Controller controller = new TwitterController(service);
-        TwitterCLIApp twitterCLIApp = new TwitterCLIApp(controller);
-        twitterCLIApp.run(args);
+        TwitterCLIApp app = new TwitterCLIApp(controller);
+        app.run(args);
     }
 
-    private void run(String[] args) {
+    public void run(String[] args) {
         if (args.length == 0) {
             throw new IllegalArgumentException(USAGE);
         }

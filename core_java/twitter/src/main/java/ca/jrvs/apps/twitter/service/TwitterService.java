@@ -20,10 +20,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@org.springframework.stereotype.Service
 public class TwitterService implements Service {
 
     private CrdDao dao;
-
+    @Autowired
     public TwitterService(CrdDao dao) {
         this.dao = dao;
     }

@@ -21,12 +21,13 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-
+@Repository
 public class TwitterDao implements CrdDao<Tweet, String> {
     //URL constants
     private static final String API_BASE_URI = "https://api.twitter.com";
@@ -41,10 +42,6 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     private static final int HTTP_OK = 200;
 
     private HttpHelper httpHelper;
-/*    private String consumerKey = System.getenv("consumerKey");
-    private String consumerSecret = System.getenv("consumerSecret");
-    private String accessToken = System.getenv("accessToken");
-    private String tokenSecret = System.getenv("tokenSecret");*/
     String consumerKey = "xgi3jfpp4iWmlqQ2fNf6X1aHo";
     String consumerSecret = "F7r8hOsvz1dueCoXOaNZFjbKpVrV7F5VMvJqRoi2uoaxeC425l";
     String accessToken = "3196537057-Ugyjh7eClcynJTX1hIs4rBw2rIhYQ1IxBqMGAV9";
