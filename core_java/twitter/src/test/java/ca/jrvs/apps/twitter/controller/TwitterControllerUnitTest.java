@@ -13,6 +13,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -97,7 +98,8 @@ public class TwitterControllerUnitTest {
             e.printStackTrace();
         }
         String[]x = new String[]{"1097607853932564480"};
-        when(twitterService.deleteTweets(any())).thenReturn(x));
+        //when(twitterService.deleteTweets(any())).thenReturn(x));
+        doReturn(x).when(twitterService.deleteTweets(any()));
         List<Tweet> deleted = controller.deleteTweet(new String[]{"null", "1097607853932564480"});
 
     }
